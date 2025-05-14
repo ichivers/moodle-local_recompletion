@@ -187,6 +187,17 @@ class check_recompletion extends \core\task\scheduled_task {
         }
         $DB->delete_records_select('course_modules_viewed', $selectsql, $params);
 
+        // Delete badges.
+        if (!empty($config->recompletionbadgeenable)) {
+            // Get all badge IDs for this course.
+            $badgeids = $DB->get_fieldset_select('badge', 'id', 'courseid = ?', [$course->id]);
+            if (!empty($badgeids)) {
+                list($inbadgeids, $params) = $DB->get_in_or_equal($badgeids, SQL_PARAMS_NAMED);
+                $params['userid'] = $userid;
+                // Delete badge_issued records for this user and these badges.
+                $DB->delete_records_select('badge_issued', "userid = :userid AND badgeid $inbadgeids", $params);                
+            }
+        }
     }
 
     /**

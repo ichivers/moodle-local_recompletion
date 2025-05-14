@@ -77,6 +77,7 @@ $setnames = [
     'archivecompletiondata',
     'recompletionnotify',
     'recompletionunenrolenable',
+    'recompletionbadgeenable',
     'recompletionemailsubject',
     'recompletionemailbody',
     'recompletionemailbody_format',

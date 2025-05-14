@@ -95,6 +95,11 @@ class local_recompletion_recompletion_form extends moodleform {
         $mform->addHelpButton('recompletionunenrolenable', 'recompletionunenrolenable', 'local_recompletion');
         $mform->hideIf('recompletionunenrolenable', 'recompletiontype', 'eq', self::RECOMPLETION_TYPE_DISABLED);
 
+        $mform->addElement('checkbox', 'recompletionbadgeenable', get_string('recompletionbadgeenable', 'local_recompletion'));
+        $mform->setDefault('recompletionbadgeenable', $config->recompletionbadgeenable);
+        $mform->addHelpButton('recompletionbadgeenable', 'recompletionbadgeenable', 'local_recompletion');
+        $mform->hideIf('recompletionbadgeenable', 'recompletiontype', 'eq', self::RECOMPLETION_TYPE_DISABLED);
+
         $options = ['optional' => false, 'defaultunit' => 86400];
         $mform->addElement('duration', 'recompletionduration', get_string('recompletionrange', 'local_recompletion'), $options);
         $mform->addHelpButton('recompletionduration', 'recompletionrange', 'local_recompletion');

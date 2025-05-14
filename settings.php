@@ -98,6 +98,10 @@ if ($hassiteconfig) {
     $settings->add(new admin_setting_configcheckbox('local_recompletion/recompletionunenrolenable',
         new lang_string('recompletionunenrolenable', 'local_recompletion'),
         new lang_string('recompletionunenrolenable_help', 'local_recompletion'), 0));
+    
+     $settings->add(new admin_setting_configcheckbox('local_recompletion/recompletionbadgeenable',
+        new lang_string('recompletionbadgeenable', 'local_recompletion'),
+        new lang_string('recompletionbadgeenable_help', 'local_recompletion'), 0));
 
     $settings->add(new admin_setting_configcheckbox('local_recompletion/deletegradedata',
         new lang_string('deletegradedata', 'local_recompletion'),

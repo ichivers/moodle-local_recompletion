@@ -41,6 +41,7 @@ class observer_test extends \advanced_testcase {
         $defaultconfig = [
             'recompletiontype' => 'ondemand',
             'recompletionunenrolenable' => 1,
+            'recompletionbadgeenable' => 0,
             'archivecompletiondata' => 0,
             'deletegradedata' => 1,
             'recompletionnotify' => '',
